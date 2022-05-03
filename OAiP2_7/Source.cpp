@@ -1,6 +1,5 @@
 #include <iostream>
 #include <conio.h>
-#include <iomanip>
 
 using namespace std;
 
@@ -21,9 +20,8 @@ double correctInputDouble();
 int main()
 {
 	char code;
-	double a, b, h, h_approx, eps, result;
+	double a, b, h, h_approx;
 	int n, m;
-	int number, k;
 	cout << "Function: x - 5(sinx)^2" << endl;
 	cout << "------------------------------------------" << endl;
 	do
