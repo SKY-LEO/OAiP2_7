@@ -9,8 +9,8 @@ const int M = 11;
 const int N = 12;
 
 void createTable(double a, int m, double h, double* arr);
-double calculateH(double a, double b, int m);
 void calculateApprox(double a, int n, double h_approx, int m, double*& arr, double* arr_approx);
+double calculateH(double a, double b, int m);
 double linearInterpoliation(double x, double*& arr, int m);
 double calculateLinearInterpoliation(double x, double*& arr, int i);
 double function(double x);
@@ -79,15 +79,23 @@ void calculateApprox(double a, int n, double h_approx, int m, double*& arr, doub
 	double original, delta, max_fault = 0., x = a;
 	for (int i = 0; i < n; i++, x += h_approx)
 	{
-		cout << "\n-> " << i + 1  << endl;
-		arr_approx[i] = linearInterpoliation(x, arr, m);
-		cout << "Xt = " << x << "\nApprox Yt = " << arr_approx[i] << endl;
-		original = function(x);
-		cout << "Original Yt = " << original << endl;
-		delta = fabs(arr_approx[i] - original);
-		if (delta > max_fault)
+		cout << "\n-> " << i + 1 << endl;
+		cout << "Xt = " << x << endl;
+		if (arr[0] < x && x < arr[m - 1])
 		{
-			max_fault = delta;
+			arr_approx[i] = linearInterpoliation(x, arr, m);
+			cout << "Approx Yt = " << arr_approx[i] << endl;
+			original = function(x);
+			cout << "Original Yt = " << original << endl;
+			delta = fabs(arr_approx[i] - original);
+			if (delta > max_fault)
+			{
+				max_fault = delta;
+			}
+		}
+		else
+		{
+			cout << "Error! Xt is out of range!" << endl;
 		}
 	}
 	cout << "\nMax fault: " << max_fault << endl;
@@ -127,7 +135,8 @@ double calculateH(double a, double b, int m)
 
 double function(double x)
 {
-	return x - 5 * sin(x) * sin(x);
+	//return x - 5 * sin(x) * sin(x);
+	return 0.1 * x * x * x + x * x - 10 * sin(x);
 }
 
 double correctInputDouble()
