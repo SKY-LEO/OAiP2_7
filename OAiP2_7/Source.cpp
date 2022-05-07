@@ -135,8 +135,7 @@ double calculateH(double a, double b, int m)
 
 double function(double x)
 {
-	//return x - 5 * sin(x) * sin(x);
-	return 0.1 * x * x * x + x * x - 10 * sin(x);
+	return x - 5 * sin(x) * sin(x);
 }
 
 double correctInputDouble()
