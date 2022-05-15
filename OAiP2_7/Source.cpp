@@ -103,7 +103,7 @@ void calculateApprox(double a, int n, double h_approx, int m, double*& arr, doub
 
 double linearInterpoliation(double x, double*& arr, int m)
 {
-	for (int i = 0; i < m; i++)
+	for (int i = 1; i < m; i++)
 	{
 		if (x < arr[i])
 		{
