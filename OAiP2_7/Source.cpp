@@ -1,3 +1,7 @@
+/*
+* Ћинейна€ интерпол€ци€
+*/
+
 #include <iostream>
 #include <conio.h>
 
